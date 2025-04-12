@@ -11,8 +11,8 @@ def get_weather_data(name):
     else:
         print(f"Request failed with status code: {r_response.status_code}")
 
-weather_cloudy = "cloudy"
-weather_info = get_weather_data(weather_cloudy)
+weather_name = "current weather"
+weather_info = get_weather_data(weather_name)
 
 if weather_info:
     # Uncomment the lines below to print all the information    
