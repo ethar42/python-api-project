@@ -1,11 +1,12 @@
 import requests 
 
-api_key = "http://api.weatherapi.com/v1/current.json?key=5e53451fdeef415d9fe215846251104&q=32060&aqi=no"
+enter_into_api_key = input("Enter Zip Code or City Name: ")
+api_key = f"http://api.weatherapi.com/v1/current.json?key=5e53451fdeef415d9fe215846251104&q={enter_into_api_key}&aqi=no"
 r_response = requests.get(api_key) # Enters URL
 
 def get_weather_data(name):
     if r_response.status_code == 200:
-        print(f"Success. Listing current location for Live Oak...")
+        print(f"Success. Listing current location for {enter_into_api_key}...")
         weather_data = r_response.json()
         return weather_data
     else:
