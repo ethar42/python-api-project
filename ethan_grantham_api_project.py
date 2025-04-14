@@ -1,9 +1,13 @@
 import requests 
 
+# This script retrieves weather data from the WeatherAPI using a given API key and location (zip code or city name).
 enter_into_api_key = input("Enter Zip Code or City Name: ")
 api_key = f"http://api.weatherapi.com/v1/current.json?key=5e53451fdeef415d9fe215846251104&q={enter_into_api_key}&aqi=no"
-r_response = requests.get(api_key) # Enters URL
+r_response = requests.get(api_key)
 
+
+# This function retrieves weather data from the API. If the request is successful, it returns the weather data in JSON format.
+# If the request fails, it prints an error message with the status code.
 def get_weather_data(name):
     if r_response.status_code == 200:
         print(f"Success. Listing current location for {enter_into_api_key}...")
@@ -11,6 +15,7 @@ def get_weather_data(name):
         return weather_data
     else:
         print(f"Request failed with status code: {r_response.status_code}")
+
 
 weather_name = "current weather"
 weather_info = get_weather_data(weather_name)
